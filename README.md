@@ -18,7 +18,7 @@
 	例如：<x> = <absolute_x> / <image_width>或<height> = <absolute_height> / <image_height>
 	注意：<x> <y>  - 是矩形的中心（不是左上角）
 
-![訓練範例圖做標籤](D:\personel\1.png) 
+![訓練範例圖做標籤](./testImage/1.png) 
 **訓練範例圖做標籤**
 	 官網https://github.com/AlexeyAB/Yolo_mark，提供製作學習範例做此標籤的工具，Yolo_mark.exe。
 
@@ -32,11 +32,11 @@
 	鍵入下列指令：
 darknet.exe detector train data\car.data cfg\yolo-car2.cfg  defaultWeight\darknet19_448.conv.23 backup\
 
-![2](D:\personel\2.png)
+![2](./testImage/2.png)
 
 在6898 iterations時截圖
 
-![3](D:\personel\3.png)
+![3](./testImage/3.png)
 
 iterations=20000，avg. loss=0.0023
 我們可看出訓練一開始loss由4.5以上到截圖時已降致0.0036，共訓練了64x6898=441472。其中64為batch，一次訓練的批量。
@@ -45,19 +45,19 @@ iterations=20000，avg. loss=0.0023
 ## 車牌位置辨識模型訓練
 將34個字元就分成34類（I,O排除），在標註標籤時類別代號就不是只有0，會依照0、1、2…9、A、B、…、Z順序編號。在yolo組態檔中均與偵測車牌、偵測車牌字元位置的組態檔大致相同，除了配合偵測34類，所以classes=34，及輸出的tensor，所以filter=(5+34)*5=195。
 
-![4](D:\personel\4.png) 
+![4](./testImage/4.png) 
 
 yolo_mark標註車牌34類字元位置
 
-![5](D:\personel\5.png)
+![5](./testImage/5.png)
 
 標註標籤檔案，包括物件編號及4個幾何位置，編號視框的字元而不同。
 
-![6](D:\personel\6.png)
+![6](./testImage/6.png)
 
 charDirectRec.data檔內容
 
-![7](D:\personel\7.png)
+![7](./testImage/7.png)
 
 traincharDirectRec.txt內容
 
